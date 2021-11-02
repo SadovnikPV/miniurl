@@ -1,9 +1,9 @@
 <?php
     include "includes/functions.php";
 
-	$users_count = db_query("SELECT COUNT(`id`) FROM `users`")->fetchColumn();
-	$links_count = db_query("SELECT COUNT(`long_link`) FROM `links`")->fetchColumn();
-	$views_count = db_query("SELECT SUM(`views`) FROM `links`")->fetchColumn();
+	$users_count = get_user_count();
+	$links_count = get_links_count();
+	$views_count = get_views_count();
 
 ?>
 
@@ -36,10 +36,19 @@
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="<?php echo get_url(); ?>">Главная</a>
 						</li>
+						<?php if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) { ?>
+							<li class="nav-item">
+								<a class="nav-link" href="<?= get_url('profile.php') ?>">Профиль</a>
+							</li>
+						<?php } ?>
 					</ul>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
+							<?php if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) { ?>
+								<a href="<?= get_url('includes/logout.php') ?>" class="btn btn-primary">Выйти</a>
+							<?php } else { ?>
+								<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
+							<?php } ?>
 						</li>
 					</ul>
 				</div>
