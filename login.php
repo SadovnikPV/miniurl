@@ -1,4 +1,10 @@
-<?php include "includes/header.php";
+<?php
+include "includes/header.php";
+
+if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) {
+	header('Location: /');
+	die;
+}
 
 $error = '';
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
