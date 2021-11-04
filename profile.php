@@ -1,5 +1,5 @@
 <?php 
-	include "includes/header_profile.php";
+	include_once "includes/header_profile.php";
 
 	if (!isset($_SESSION['user']['id']) && empty($_SESSION['user']['id'])) {
 		header('Location: /');
@@ -49,6 +49,7 @@
 				</tr>
 			</thead>
 			<tbody>
+
 				<?php foreach($links as $key => $link) { ?>
 				<tr>
 					<th scope="row"><?= $key + 1 ?></th>
@@ -57,33 +58,12 @@
 					<td><?= $link['views'] ?></td>
 					<td>
 						<a href="#" class="btn btn-primary btn-sm copy-btn" title="Скопировать в буфер" data-clipboard-text="<?= get_url($link['short_link']) ?>"><i class="bi bi-files"></i></a>
-						<a href="#" class="btn btn-warning btn-sm" title="Редактировать"><i class="bi bi-pencil"></i></a>
+						<a href="<?= get_url('includes/edit_link.php?id=' . $link['id']) ?>" class="btn btn-warning btn-sm" title="Редактировать"><i class="bi bi-pencil"></i></a>
 						<a href="<?= get_url('includes/delete.php?id=' . $link['id']) ?>" class="btn btn-danger btn-sm" title="Удалить"><i class="bi bi-trash"></i></a>
 					</td>
 				</tr>
 				<?php } ?>
-				<!-- <tr>
-					<th scope="row">2</th>
-					<td><a href="https://google.ru" target="_blank">https://google.ru</a></td>
-					<td class="short-link">http://red.loc/ke05nls</td>
-					<td>42</td>
-					<td>
-						<a href="#" class="btn btn-primary btn-sm copy-btn" title="Скопировать в буфер" data-clipboard-text="http://red.loc/ke05nls"><i class="bi bi-files"></i></a>
-						<a href="#" class="btn btn-warning btn-sm" title="Редактировать"><i class="bi bi-pencil"></i></a>
-						<a href="#" class="btn btn-danger btn-sm" title="Удалить"><i class="bi bi-trash"></i></a>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td><a href="https://vk.com" target="_blank">https://vk.com</a></td>
-					<td class="short-link">http://red.loc/jfiwms7</td>
-					<td>64</td>
-					<td>
-						<a href="#" class="btn btn-primary btn-sm copy-btn" title="Скопировать в буфер" data-clipboard-text="http://red.loc/jfiwms7"><i class="bi bi-files"></i></a>
-						<a href="#" class="btn btn-warning btn-sm" title="Редактировать"><i class="bi bi-pencil"></i></a>
-						<a href="#" class="btn btn-danger btn-sm" title="Удалить"><i class="bi bi-trash"></i></a>
-					</td>
-				</tr> -->
+
 			</tbody>
 		</table>
 	</div>
@@ -100,6 +80,4 @@
 		</div>
 	</div>
 </div>
-<?php include "includes/footer_profile.php" ?>
-<?php 
-var_dump($links);
+<?php include_once "includes/footer_profile.php" ?>

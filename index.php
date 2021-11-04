@@ -1,4 +1,6 @@
 <?php
+	include_once "includes/header.php" ;
+
 	if (isset($_GET['url']) && !empty($_GET['url'])) {
 		$url = strtolower(trim($_GET['url']));
 
@@ -14,8 +16,7 @@
 		die;
 	} 
 
-	include "includes/header.php" ;
-	echo $_SESSION['error'];
+	//echo $_SESSION['error'];
 ?>
 	<main class="container">
 		<?php if (!isset($_SESSION['user']['id']) && empty($_SESSION['user']['id'])) { ?>

@@ -8,5 +8,7 @@
     define ('DB_USER', 'root');
     define ('DB_PASS', '');
 
+    define ('URL_CHARS', 'abcdefghijklmnopqrstuvwxyz0123456789-');
+
     session_start();
 ?>

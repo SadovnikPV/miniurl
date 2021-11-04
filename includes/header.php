@@ -1,5 +1,5 @@
 <?php
-    include "includes/functions.php";
+    include "functions.php";
 
 	$users_count = get_user_count();
 	$links_count = get_links_count();
