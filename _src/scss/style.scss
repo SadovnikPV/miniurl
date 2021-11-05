@@ -1,0 +1,12 @@
+// ---------------------------------- Подключение миксинов ---------------------------------------
+
+@import "mixins/_font-style-mix.scss";
+
+// ---------------- Подключение всех файлов стилей (общих и для каждого блока) -------------------
+
+@import "variables";
+@import "fonts";
+@import "basic";
+@import "header";
+@import "main-page";
+@import "edit-link";

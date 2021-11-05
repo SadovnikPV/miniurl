@@ -41,7 +41,7 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 		<div class="row mt-5">
 			<div class="col">
 				<h2 class="text-center">Вход в личный кабинет</h2>
-				<p class="text-center">Если вы еще не зарегистрированы, то самое время <a href="<?= 'register.php' ?>">зарегистрироваться</a></p>
+				<p class="text-center">Если вы еще не зарегистрированы, то самое время <a href="<?= get_url('register.php') ?>">зарегистрироваться</a></p>
 			</div>
 		</div>
 		<div class="row mt-3">
@@ -49,11 +49,11 @@ if (isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) &
 				<form action="" method="post">
 					<div class="mb-3">
 						<label for="login-input" class="form-label">Логин</label>
-						<input type="text" class="form-control is-valid" id="login-input" required name="login">
+						<input type="text" class="form-control" id="login-input" required name="login">
 					</div>
 					<div class="mb-3">
 						<label for="password-input" class="form-label">Пароль</label>
-						<input type="password" class="form-control is-invalid" id="password-input" required name="pass">
+						<input type="password" class="form-control" id="password-input" required name="pass">
 					</div>
 					<button type="submit" class="btn btn-primary">Войти</button>
 				</form>

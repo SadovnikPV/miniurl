@@ -6,12 +6,14 @@ if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) {
 	die;
 }
 
+// Вывод поля 'ошибка', если она заполнено в сессии
 $error = '';
 if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 	$error = $_SESSION['error'];
 	$_SESSION['error'] = '';
 }
 
+// Вывод поля 'успех', если оно заполнено в сессии
 $success = '';
 if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
 	$success = $_SESSION['success'];
@@ -49,17 +51,17 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
 			<form action="" method="post">
 				<div class="mb-3">
 					<label for="login-input" class="form-label">Логин</label>
-					<input type="text" class="form-control is-valid" id="login-input" required name="login">
+					<input type="text" class="form-control" id="login-input" required name="login">
 					<!-- <div class="valid-feedback">Все ок</div> -->
 				</div>
 				<div class="mb-3">
 					<label for="password-input" class="form-label">Пароль</label>
-					<input type="password" class="form-control is-invalid" id="password-input" required name="pass">
+					<input type="password" class="form-control" id="password-input" required name="pass">
 					<!-- <div class="invalid-feedback">А тут не ок</div> -->
 				</div>
 				<div class="mb-3">
 					<label for="password-input2" class="form-label">Пароль еще раз</label>
-					<input type="password" class="form-control is-invalid" id="password-input2" required name="pass2">
+					<input type="password" class="form-control" id="password-input2" required name="pass2">
 					<!-- <div class="invalid-feedback">И тут тоже не ок</div> -->
 				</div>
 				<button type="submit" class="btn btn-primary">Зарегистрироваться</button>

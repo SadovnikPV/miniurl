@@ -16,31 +16,31 @@
 		die;
 	} 
 
-	//echo $_SESSION['error'];
 ?>
 	<main class="container">
-		<?php if (!isset($_SESSION['user']['id']) && empty($_SESSION['user']['id'])) { ?>
-		<div class="row mt-5">
-			<div class="col">
-				<h2 class="text-center">Необходимо <a href="<?php echo get_url('register.php'); ?>">зарегистрироваться</a> или <a href="<?php echo get_url('login.php'); ?>">войти</a> под своей учетной записью</h2>
+		<section class="main-page">
+			<div class="main-page__head">
+				<h2 class="main-page__title">Сервис сокращения ссылок</h2>
 			</div>
-		</div>
-		<?php } ?>
-		<div class="row mt-5">
-			<div class="col">
-				<h2 class="text-center">Пользователей в системе: <?php echo $users_count ?></h2>
+			<?php if (!isset($_SESSION['user']['id']) && empty($_SESSION['user']['id'])) { ?>
+			<div class="main-page__reg-tip">
+				<h2 class="main-page__subtitle">Для начала работы необходимо <a href="<?php echo get_url('register.php'); ?>">зарегистрироваться</a> или <a href="<?php echo get_url('login.php'); ?>">войти</a> под своей учетной записью</h2>
 			</div>
-		</div>
-		<div class="row mt-5">
-			<div class="col">
-				<h2 class="text-center">Ссылок в системе: <?php echo $links_count ?></h2>
+			<?php } ?>
+			<div class="main-page__statistics">
+				<h2 class="main-page__stat-subtitle">Наша статистика:</h2>
+				<div class="main-page__statistics-item statistics-item">
+					<h2 class="statistics-item__text">Пользователей в системе: <?php echo $users_count ?></h2>
+				</div>
+				<div class="main-page__statistics-item statistics-item">
+					<h2 class="statistics-item__text">Ссылок в системе: <?php echo $links_count ?></h2>
+				</div>
+				<div class="main-page__statistics-item statistics-item">
+					<h2 class="statistics-item__text">Всего переходов по ссылкам: <?php echo $views_count ?></h2>
+				</div>
 			</div>
-		</div>
-		<div class="row mt-5">
-			<div class="col">
-				<h2 class="text-center">Всего переходов по ссылкам: <?php echo $views_count ?></h2>
-			</div>
-		</div>
+		</section>
 	</main>
+
 <?php include "includes/footer.php" ?>
 

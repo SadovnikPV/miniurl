@@ -8,8 +8,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/bootstrap-icons.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<title><?= SITE_NAME ?></title>
 </head>
 
@@ -36,7 +37,8 @@
 						<button class="btn btn-success" type="submit"><i class="bi bi-plus-lg"></i></button>
 					</form>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item">
+						<li class="nav-item header__login-block">
+							<a href="<?= get_url('profile.php') ?>" class="header__login-link"><?= $_SESSION['user']['login']; ?></a>
 							<a href="<?= get_url('includes/logout.php') ?>" class="btn btn-primary">Выйти</a>
 						</li>
 					</ul>

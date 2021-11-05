@@ -1,10 +1,10 @@
 <?php
 
-    define ('SITE_NAME', 'Mini URL');
-    define ('HOST', 'http://' . $_SERVER['HTTP_HOST']);
+    define ('SITE_NAME', 'Mini URL');           // Имя сайта
+    define ('HOST', 'http://' . 'miniurl');     // Домен сайта с протоколом http
 
-    define ('DB_HOST', 'localhost');    // localhost
-    define ('DB_NAME', 'miniurl');
+    define ('DB_HOST', 'localhost');            // Адрес хоста (IP или имя)
+    define ('DB_NAME', 'miniurl');              // Имя БД
     define ('DB_USER', 'root');
     define ('DB_PASS', '');
 

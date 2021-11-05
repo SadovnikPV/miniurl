@@ -14,7 +14,8 @@
 	<meta name="viewport"
 				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css">
 	<title>
         <?php echo SITE_NAME; ?>
     </title>
@@ -43,8 +44,9 @@
 						<?php } ?>
 					</ul>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item">
+						<li class="nav-item header__login-block">
 							<?php if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) { ?>
+								<a href="<?= get_url('profile.php') ?>" class="header__login-link"><?= $_SESSION['user']['login']; ?></a>
 								<a href="<?= get_url('includes/logout.php') ?>" class="btn btn-primary">Выйти</a>
 							<?php } else { ?>
 								<a href="<?php echo get_url('login.php'); ?>" class="btn btn-primary">Войти</a>
