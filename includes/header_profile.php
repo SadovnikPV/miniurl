@@ -37,7 +37,7 @@
 						<button class="btn btn-success" type="submit"><i class="bi bi-plus-lg"></i></button>
 					</form>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item header__login-block">
+						<li class="nav-item header__login-block"></li>
 							<a href="<?= get_url('profile.php') ?>" class="header__login-link"><?= $_SESSION['user']['login']; ?></a>
 							<a href="<?= get_url('includes/logout.php') ?>" class="btn btn-primary">Выйти</a>
 						</li>
