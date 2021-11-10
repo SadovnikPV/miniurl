@@ -37,19 +37,19 @@ function db_query($sql = '', $exec = false)
 // Запрос к БД на получение количества пользователей на сайте
 function get_user_count()
 {
-    return db_query("SELECT COUNT(`id`) FROM `users`")->fetchColumn();
+    return db_query("SELECT COUNT(`id`) FROM `".DB_TABLE_USERS."`")->fetchColumn();
 }
 
 // Запрос к БД на получение количества различных ссылок на сайте
 function get_links_count()
 {
-    return db_query("SELECT COUNT(`long_link`) FROM `links`")->fetchColumn();
+    return db_query("SELECT COUNT(`long_link`) FROM `".DB_TABLE_LINKS."`")->fetchColumn();
 }
 
 // Запрос к БД на получение количества переходов по сокращенным ссылкам
 function get_views_count()
 {
-    return db_query("SELECT SUM(`views`) FROM `links`")->fetchColumn();
+    return db_query("SELECT SUM(`views`) FROM `".DB_TABLE_LINKS."`")->fetchColumn();
 }
 
 // Запрос к БД на получение всех параметров ссылки по сокращенной ссылке
@@ -57,7 +57,7 @@ function get_link_info($url)
 {
     if (empty($url)) return [];
 
-    return db_query("SELECT * FROM `links` WHERE `short_link` = '$url'")->fetch();
+    return db_query("SELECT * FROM `".DB_TABLE_LINKS."` WHERE `short_link` = '$url'")->fetch();
 }
 
 // Запрос к БД на получение всех параметров ссылки по номеру -id-
@@ -65,7 +65,7 @@ function get_link_by_id($id)
 {
     if (empty($id)) return [];
 
-    return db_query("SELECT * FROM `links` WHERE `id` = '$id'")->fetch();
+    return db_query("SELECT * FROM `".DB_TABLE_LINKS."` WHERE `id` = '$id'")->fetch();
 }
 
 
@@ -73,20 +73,20 @@ function get_user_info($login)
 {
     if (empty($login)) return [];
 
-    return db_query("SELECT * FROM `users` WHERE `login` = '$login'")->fetch();
+    return db_query("SELECT * FROM `".DB_TABLE_USERS."` WHERE `login` = '$login'")->fetch();
 }
 
 function update_views($url)
 {
     if (empty($url)) return false;
 
-    return db_query("UPDATE `links` SET `views` = `views` + 1 WHERE `short_link` = '$url'", true);
+    return db_query("UPDATE `".DB_TABLE_LINKS."` SET `views` = `views` + 1 WHERE `short_link` = '$url'", true);
 }
 
 function add_user($login, $pass)
 {
     $password = password_hash($pass, PASSWORD_DEFAULT);
-    return db_query("INSERT INTO `users` (`id`, `login`, `pass`) VALUES (NULL, '$login', '$password');", true);
+    return db_query("INSERT INTO `".DB_TABLE_USERS."` (`id`, `login`, `pass`) VALUES (NULL, '$login', '$password');", true);
 }
 
 // -------------------------------------------------------
@@ -179,7 +179,7 @@ function login($auth_data)
 function get_user_links($user_id)
 {
     if (empty($user_id)) return [];
-    return db_query("SELECT * FROM `links` WHERE `user_id` = $user_id")->fetchAll();
+    return db_query("SELECT * FROM `".DB_TABLE_LINKS."` WHERE `user_id` = $user_id")->fetchAll();
 }
 
 // Запрос в БД на удаление ссылки
@@ -187,7 +187,7 @@ function delete_link($id)
 {
     if (empty($id)) return false;
 
-    return db_query("DELETE FROM `links` WHERE `id` = $id", true);
+    return db_query("DELETE FROM `".DB_TABLE_LINKS."` WHERE `id` = $id", true);
 }
 
 // Запрос в БД на добавление новой ссылки
@@ -195,7 +195,7 @@ function add_link($user_id, $link)
 {
     $short_link = generate_string();
 
-    return db_query("INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES (NULL, '$user_id', '$link', '$short_link', '0')", true);
+    return db_query("INSERT INTO `".DB_TABLE_LINKS."` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES (NULL, '$user_id', '$link', '$short_link', '0')", true);
 }
 
 // Генерация случайной последовательности символов
@@ -211,7 +211,7 @@ function edit_link($link, $link_id)
     if (empty($link) || empty($link_id)) return false;
     $link = preg_replace('/\s/', '', $link);
     if ($link) {
-        return db_query("UPDATE `links` SET `long_link` = '$link' WHERE `id` = '$link_id';", true);
+        return db_query("UPDATE `".DB_TABLE_LINKS."` SET `long_link` = '$link' WHERE `id` = '$link_id';", true);
     }
 }
 
