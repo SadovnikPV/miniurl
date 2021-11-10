@@ -12,4 +12,4 @@ if (isset($_POST['edited_link']) && !empty($_POST['edited_link']) && isset($_POS
     }
 }
 
-header('Location: /profile.php');
+header('Location: ' . HOST . '/profile.php');

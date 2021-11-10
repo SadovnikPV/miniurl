@@ -145,6 +145,8 @@ function register_user($auth_data)
     return true;
 }
 
+// ------------------- АВТОРИЗАЦИЯ -----------------------
+
 function login($auth_data)
 {
     if (

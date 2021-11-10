@@ -12,5 +12,5 @@ if (isset($_POST['link']) && !empty($_POST['link']) && isset($_POST['user_id']) 
     }
 }
 
-header('Location: /profile.php');
+header('Location: ' . HOST . '/profile.php');
 die;

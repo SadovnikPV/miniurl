@@ -1,5 +1,5 @@
-	<script src="/js/bootstrap_5.1.2.min.js"></script>
-	<script src="/js/clipboard.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="<?= get_url("js/bootstrap_5.1.2.min.js") ?>"></script>
+	<script src="<?= get_url("js/clipboard.min.js") ?>"></script>
+	<script src="<?= get_url("js/script.js") ?>"></script>
 </body>
 </html>

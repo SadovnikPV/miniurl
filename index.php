@@ -5,7 +5,6 @@
 		$url = strtolower(trim($_GET['url']));
 
 		$link = get_link_info($url);
-		
 		if (empty($link)) {
 			header('Location: 404.php');
 			echo "Not found!";
@@ -14,7 +13,7 @@
 		update_views($url);
 		header('Location: ' .  $link['long_link']);
 		die;
-	} 
+	}
 
 ?>
 	<main class="container">
